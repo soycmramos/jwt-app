@@ -30,14 +30,14 @@ const signin = async (req, res) => {
 		}
 
 		if (user && user instanceof User) {
-			const dateTime = parseInt(new Date() / 1000)
+			const iat = parseInt(new Date() / 1000)
 
 			const token = await jwt.sign(JSON.stringify({
 				issuer: 'example',
 				_id: user._id,
 				username: user.username,
-				iat: dateTime,
-				exp: dateTime + 60 * 60
+				iat,
+				exp: iat + 60 * 60
 			}), process.env.JWT_SECRET_KEY)
 
 			return res
