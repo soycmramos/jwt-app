@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -34,11 +35,14 @@ const signin = async (req, res) => {
 
 			const token = await jwt.sign(JSON.stringify({
 				issuer: 'example',
+				iat,
+				nbf: iat,
+				exp: iat + 60 * 60,
 				_id: user._id,
 				username: user.username,
-				iat,
-				exp: iat + 60 * 60
 			}), process.env.JWT_SECRET_KEY)
+
+			console.log({ token })
 
 			return res
 				.cookie('access_token', token, {

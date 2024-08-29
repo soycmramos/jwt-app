@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import { config } from 'dotenv'
+import morgan from 'morgan'
 import rootRoutes from './routes/root.js'
 import authRoutes from './routes/auth/index.js'
 import protectedRoutes from './routes/protected/index.js'
@@ -22,6 +23,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(join(__dirname, 'public')))
+app.use(morgan('dev'))
 
 app.use(rootRoutes)
 app.use(authRoutes)
