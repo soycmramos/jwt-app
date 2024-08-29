@@ -1,0 +1,12 @@
+[disabled] {
+	$color: #ccc;
+	cursor: default;
+	background-color: $color;
+	color: var(--color-body);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $color;
+	}
+}

@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100dvh - var(--header-height));
+	margin-top: var(--header-height);
+	font-family: var(--font-body);
+	background-color: var(--bg-body);
+	color: var(--color-body);
+}

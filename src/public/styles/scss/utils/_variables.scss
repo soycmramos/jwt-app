@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--header-height: 4em;
+	--bg-body: #f8f8f8;
+	--color-body: #404145;
+	--font-body: 'Raleway', system-ui, sans-serif;
+}
+
+$breakpoints: (
+	sm: 600px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1440px
+);
