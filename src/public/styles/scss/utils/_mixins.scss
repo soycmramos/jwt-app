@@ -1,0 +1,41 @@
+@mixin from($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		@media only screen and (min-width: map-get($breakpoints, $bp)) {
+			@content;
+		}
+	}
+
+	@else {
+		@media only screen and (min-width: $bp) {
+			@content;
+		}
+	}
+}
+
+@mixin to($bp) {
+	@if map-has-key($breakpoints, $bp) {
+		@media only screen and (max-width: map-get($breakpoints, $bp)) {
+			@content;
+		}
+	}
+
+	@else {
+		@media only screen and (max-width: $bp) {
+			@content;
+		}
+	}
+}
+
+@mixin from-to($bp-from, $bp-to) {
+	@if map-has-key($breakpoints, $bp-from) and map-has-key($breakpoints, $bp-to) {
+		@media only screen and (min-width: map-get($breakpoints, $bp-from)) and (max-width: map-get($breakpoints, $bp-to)) {
+			@content;
+		}
+	}
+
+	@else {
+		@media only screen and (min-width: $bp-from) and (max-width: $bp-to) {
+			@content;
+		}
+	}
+}

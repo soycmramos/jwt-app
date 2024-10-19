@@ -1,0 +1,120 @@
+<section class="py-4">
+	<form class="signup-form" id="signup-form" autocomplete="off">
+		<h2 class="signup-form__title">Sign Up</h2>
+		<input class="signup-form__input" type="text" name="username" placeholder="Username" autocomplete="off"
+			required="required" autofocus="autofocus" />
+		<input class="signup-form__input" type="password" name="password" placeholder="Password" autocomplete="off"
+			required="required" />
+		<input class="signup-form__input" type="submit" value="Sign Up" id="btn-signup-form" /><span
+			id="signup-form-span"></span>
+	</form>
+	<form class="signin-form" id="signin-form" autocomplete="off">
+		<h2 class="signin-form__title">Sign In</h2>
+		<input class="signin-form__input" type="text" name="username" placeholder="Username" autocomplete="off"
+			required="required" autofocus="autofocus" />
+		<input class="signin-form__input" type="password" name="password" placeholder="Password" autocomplete="off"
+			required="required" />
+		<input class="signin-form__input" type="submit" value="Sign In" id="btn-signin-form" /><span
+			id="signin-form-span"></span>
+	</form>
+</section>
+
+<!-- const $ = element => document.querySelector(element)
+
+const $signupForm = $('#signup-form')
+const $signinForm = $('#signin-form')
+
+const $btnSignupForm = $('#signup-form input[type="submit"]')
+const $btnSigninForm = $('#signin-form input[type="submit"]')
+
+const $spanSignupForm = $('#signup-form span')
+const $spanSigninForm = $('#signin-form span')
+
+const $btnSignOut = $('#btn-signout')
+
+if ($signupForm) {
+  $signupForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    $btnSignupForm.setAttribute('disabled', '')
+
+    const username = $signupForm['username'].value
+    const password = $signupForm['password'].value
+
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ username, password })
+    }
+
+    try {
+      let response = await fetch('/signup', options)
+
+      if (!response.ok) {
+        response = await response.json()
+        $spanSignupForm.innerText = response.msg
+        $spanSignupForm.style.color = 'red'
+        return
+      }
+
+      $spanSignupForm.innerText = '¡Success! Logging in...'
+      $spanSignupForm.style.color = 'green'
+
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 2000)
+    } catch (error) {
+      console.error(error)
+      $spanSignupForm.innerText = 'Error. Please try again'
+      $spanSignupForm.style.color = 'red'
+    }
+  })
+}
+
+if ($signinForm) {
+  $signinForm.addEventListener('submit', async e => {
+    e.preventDefault()
+    $btnSigninForm.setAttribute('disabled', '')
+
+    const username = $signinForm['username'].value
+    const password = $signinForm['password'].value
+
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ username, password })
+    }
+
+    try {
+      let response = await fetch('/signin', options)
+
+      if (!response.ok) {
+        response = await response.json()
+        $spanSigninForm.innerText = response.msg
+        $spanSigninForm.style.color = 'red'
+        return
+      }
+
+      $spanSigninForm.innerText = '¡Success!'
+      $spanSigninForm.style.color = 'green'
+
+      setTimeout(() => {
+        window.location.href = '/home'
+      }, 2000)
+
+    } catch (error) {
+      console.error(error)
+      $spanSigninForm.innerText = 'Error. Please try again'
+      $spanSigninForm.style.color = 'red'
+    }
+  })
+}
+
+if ($btnSignOut) {
+  $btnSignOut.addEventListener('click', async e => {
+    try {
+      await fetch('/signout', { method: 'POST' })
+    } catch (error) {
+      console.error(error)
+    }
+  })
+} -->

@@ -1,0 +1,35 @@
+{
+	"name": "node-jwt-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/ndex.js",
+	"type": "module",
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development nodemon ./src/index.js",
+		"tailwindcss": "pnpm npx tailwindcss -i ./src/public/styles/css/input.css -o ./src/public/styles/css/output.css --watch",
+		"start": "cross-env NODE_ENV=production node ./src/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "5.1.1",
+		"cookie-parser": "1.4.6",
+		"cross-env": "7.0.3",
+		"dotenv": "16.4.5",
+		"ejs": "3.1.10",
+		"express": "4.19.2",
+		"express-ejs-layouts": "2.5.1",
+		"http-status-codes": "2.3.0",
+		"jsonwebtoken": "9.0.2",
+		"pug": "3.0.3",
+		"sequelize": "6.37.3",
+		"sqlite3": "5.1.7"
+	},
+	"devDependencies": {
+		"morgan": "1.10.0",
+		"nodemon": "3.1.4",
+		"sass": "1.77.8",
+		"tailwindcss": "^3.4.10"
+	}
+}
