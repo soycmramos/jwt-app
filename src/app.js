@@ -2,23 +2,24 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import EJSLayouts from 'express-ejs-layouts'
 import { config } from 'dotenv'
 import morgan from 'morgan'
 import rootRoutes from './routes/root.js'
 import authRoutes from './routes/auth/index.js'
 import protectedRoutes from './routes/protected/index.js'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 config()
 
 const app = express()
-
 app.set('port', process.env.PORT || 3000)
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs')
 app.set('views', join(__dirname, 'views'))
+app.set('layout', join(__dirname, 'views/layouts/main'))
 
+app.use(EJSLayouts)
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
